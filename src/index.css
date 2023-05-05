@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap");
+
+:root {
+  font-family: "IBM Plex Mono", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(45deg, #0d0d2a, #111);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  border: 1px solid transparent;
+  padding: 1rem 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #ff727f;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  text-transform: uppercase;
+  filter: drop-shadow(3px 4px 0 #0d0d2a);
+  color: rgba(255, 255, 255, 0.87);
+}
+button:hover {
+  border-color: #6b099c;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  font-size: 0.85rem;
+  font-family: "IBM Plex Mono";
+  padding: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-shadow: #ff727f 1px 1px;
+}
+
+.connector-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.token-section {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  background: #202031;
+  border: 1px solid #fafafa;
+  filter: drop-shadow(3px 4px 0 #eee);
+}
+
+.token-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.token-section input {
+  display: block;
+  width: 100%;
+}
+
+.token-section button {
+  margin-top: 0.5rem;
+}
+.gallery-title {
+  margin: 4rem 0;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.gallery img,
+.gallery video {
+  margin: 0.5rem 0;
+  max-width: 100%;
+  width: 300px;
+  border-radius: 8px;
+}
+.gallery h3 {
+  font-weight: 600;
+  font-size: 1.35rem;
+}
+.info {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+.connector-row {
+  display: flex;
+  gap: 2rem;
+}
+@media screen and (max-width: 40em) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
