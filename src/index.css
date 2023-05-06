@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: "IBM Plex Mono", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,43 +19,34 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html,
+body,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.artwork {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(20deg, #6887fc, #bc17e8);
+  border-radius: 1rem;
 }
 
-h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
+.artwork p {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 14px;
+  color: #fff;
+  z-index: 2;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin: 0;
+.shadowed {
+  text-shadow: #ff727f 1px 1px;
 }
 
-button {
+.btn {
   border: 1px solid transparent;
   padding: 1rem 1.5em;
   font-size: 1em;
@@ -64,12 +59,16 @@ button {
   filter: drop-shadow(3px 4px 0 #0d0d2a);
   color: rgba(255, 255, 255, 0.87);
 }
-button:hover {
+.btn:hover {
   border-color: #6b099c;
 }
-button:focus,
-button:focus-visible {
+.btn:focus,
+.btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.box-shadow {
+  filter: drop-shadow(3px 4px 0 #eee);
 }
 
 input {
@@ -79,76 +78,5 @@ input {
   max-width: 100%;
   box-sizing: border-box;
   text-align: center;
-}
-
-.title {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  text-shadow: #ff727f 1px 1px;
-}
-
-.connector-row {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.token-section {
-  margin: 2rem 0;
-  padding: 1.5rem 2rem;
-  background: #202031;
-  border: 1px solid #fafafa;
-  filter: drop-shadow(3px 4px 0 #eee);
-}
-
-.token-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.token-section input {
-  display: block;
-  width: 100%;
-}
-
-.token-section button {
-  margin-top: 0.5rem;
-}
-.gallery-title {
-  margin: 4rem 0;
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-.gallery img,
-.gallery video {
-  margin: 0.5rem 0;
-  max-width: 100%;
-  width: 300px;
-  border-radius: 8px;
-}
-.gallery h3 {
-  font-weight: 600;
-  font-size: 1.35rem;
-}
-.info {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-align: center;
-}
-.connector-row {
-  display: flex;
-  gap: 2rem;
-}
-@media screen and (max-width: 40em) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
+  color: rgba(0, 0, 0, 0.87);
 }

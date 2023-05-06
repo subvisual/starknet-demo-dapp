@@ -7,8 +7,8 @@ function App() {
   const { address, isConnected } = useAccount();
 
   return (
-    <div className="App">
-      <h1 className="title">Le better starknet dapp</h1>
+    <div className="App flex flex-col items-center justify-center h-full">
+      <h1 className="title text-4xl shadowed mb-8">Le better starknet dapp</h1>
 
       {isConnected ? (
         <div>

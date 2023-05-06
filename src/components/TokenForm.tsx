@@ -65,10 +65,10 @@ export default function TokenForm() {
   */
 
   return (
-    <div className="token-section">
-      <h3>USDC (wink wink)</h3>
+    <div className=" my-8 px-8 py-6 bg-offblack border border-offwhite box-shadow text-center max-w-[600px] mx-auto">
+      <h3 className="text-md font-bold">USDC (wink wink)</h3>
       <strong>Balance: {format(balance, "balance", 18) || "..."}</strong>
-      <form onSubmit={send}>
+      <form onSubmit={send} className="flex flex-col gap-4 my-4">
         <input
           type="text"
           name="to"
@@ -84,10 +84,12 @@ export default function TokenForm() {
           step="any"
           onChange={(e) => setAmount(e.target.value)}
         />
-        <button type="submit">Send</button>
+        <button type="submit" className="btn">
+          Send
+        </button>
       </form>
       <p>{isLoading && "tx pending..."}</p>
-      <p>{data && data.transaction_hash}</p>
+      <p className="break-words">{data && data.transaction_hash}</p>
     </div>
   );
 }

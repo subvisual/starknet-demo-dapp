@@ -7,7 +7,7 @@ export default function Info() {
   });
 
   return (
-    <div className="info">
+    <div className="absolute bottom-4 left-0 right-0 m-auto text-center">
       <p>
         Current block: {data?.block_number}, {data?.transactions.length} txs
       </p>
