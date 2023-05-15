@@ -7,7 +7,9 @@ export default function Provenance({
   asset: Asset;
   close: () => void;
 }) {
-  const mintedAt = asset.transfers[0].transaction.timestamp;
+  const sorted = asset.transfers.sort((a, b) =>
+    a.transaction.timestamp > b.transaction.timestamp ? 1 : -1
+  );
 
   return (
     <section className="text-left w-[300px] h-fit border border-white p-4">
@@ -15,10 +17,12 @@ export default function Provenance({
 
       <p>Minted by {truncate(asset.minter.address)}</p>
       <p className="text-sm">
-        {new Date(mintedAt * 1000).toLocaleDateString()}
+        {new Date(
+          sorted?.[0].transaction.timestamp * 1000
+        ).toLocaleDateString()}
       </p>
 
-      {asset.transfers.slice(1).map((tr, ind) => (
+      {sorted.slice(1).map((tr, ind) => (
         <div key={ind} className="my-2">
           <p>Transferred to {truncate(tr.to.address)}</p>
           <p className="text-sm">

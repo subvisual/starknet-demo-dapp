@@ -3,7 +3,7 @@ import { useBlock } from "@starknet-react/core";
 export default function Info() {
   const { data } = useBlock({
     refetchInterval: 10_000,
-    blockIdentifier: "latest"
+    blockIdentifier: "latest",
   });
 
   return (

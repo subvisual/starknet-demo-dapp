@@ -23,16 +23,16 @@ export default function TokenForm() {
     address: CONTRACT_ADDRESS,
     functionName: "balanceOf",
     args: [address],
-    // watch: false <- refresh at every block
+    // watch: true <- refresh at every block
   });
 
   const calls = useMemo(() => {
     if (!amount || !to) return;
 
     const amountFormatted = {
-      type: "struct" as const,
+      type: "struct",
       ...uint256.bnToUint256(parseFixed(amount, 18).toString()),
-    };
+    } as const;
 
     const calldata = stark.compileCalldata({
       recipient: to,
@@ -61,7 +61,7 @@ export default function TokenForm() {
     address: CONTRACT_ADDRESS,
     abi: abi_erc20,
   });
-  contract.transfer(...)  
+  contract.transfer(...)
   */
 
   return (

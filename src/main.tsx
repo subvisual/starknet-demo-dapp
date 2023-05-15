@@ -9,7 +9,11 @@ import NotAnNft from "./components/NotAnNft.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <StarknetConfig connectors={connectors}>
+    <StarknetConfig
+      connectors={connectors}
+      // defaultProvider={...}
+      // autoConnect={false}
+    >
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
