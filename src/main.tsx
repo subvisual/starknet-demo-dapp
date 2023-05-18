@@ -1,4 +1,4 @@
-import { StarknetConfig } from "@starknet-react/core";
+import { StarknetConfig } from "../../../starknet/starknet-react/packages/core/src";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";

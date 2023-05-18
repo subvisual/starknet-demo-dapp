@@ -1,4 +1,4 @@
-import { useAccount } from "@starknet-react/core";
+import { useAccount } from "../../../starknet/starknet-react/packages/core/src";
 import Connect from "./components/Connect";
 import Info from "./components/Info";
 import TokenForm from "./components/TokenForm";

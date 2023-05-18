@@ -1,4 +1,4 @@
-import { useConnectors } from "@starknet-react/core";
+import { useConnectors } from "../../../../starknet/starknet-react/packages/core/src";
 
 export default function Connect() {
   const { connect, connectors } = useConnectors();

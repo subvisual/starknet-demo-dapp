@@ -2,7 +2,8 @@ import {
   useAccount,
   useContractRead,
   useContractWrite,
-} from "@starknet-react/core";
+  useBalance,
+} from "../../../../starknet/starknet-react/packages/core/src";
 import abi_erc20 from "../lib/abi_erc20";
 import { FormEvent, useMemo, useState } from "react";
 import { uint256, stark } from "starknet";
@@ -18,12 +19,18 @@ export default function TokenForm() {
   const [to, setTo] = useState("");
   const [amount, setAmount] = useState("");
 
-  const { data: balance } = useContractRead({
+  const { data: cread } = useContractRead({
     abi: abi_erc20,
     address: CONTRACT_ADDRESS,
     functionName: "balanceOf",
     args: [address],
     // watch: true <- refresh at every block
+  });
+
+  const { data: balance } = useBalance({
+    address,
+    decimals: 18,
+    token: CONTRACT_ADDRESS,
   });
 
   const calls = useMemo(() => {
@@ -67,7 +74,8 @@ export default function TokenForm() {
   return (
     <div className=" my-8 px-8 py-6 bg-offblack border border-offwhite box-shadow text-center max-w-[600px] mx-auto">
       <h3 className="text-md font-bold">USDC (wink wink)</h3>
-      <strong>Balance: {format(balance, "balance", 18) || "..."}</strong>
+      <strong>contractRead: {format(cread, "balance", 18) || "..."}</strong><br />
+      <strong>useBalance: {balance?.formatted} {balance?.symbol}</strong>
       <form onSubmit={send} className="flex flex-col gap-4 my-4">
         <input
           type="text"

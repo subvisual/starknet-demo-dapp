@@ -1,7 +1,7 @@
-import { useBlock } from "@starknet-react/core";
+import { useBlock } from "../../../../starknet/starknet-react/packages/core/src";
 
 export default function Info() {
-  const { data } = useBlock({
+  /* const { data } = useBlock({
     refetchInterval: 10_000,
     blockIdentifier: "latest",
   });
@@ -12,5 +12,6 @@ export default function Info() {
         Current block: {data?.block_number}, {data?.transactions.length} txs
       </p>
     </div>
-  );
+  ); */
+  return null
 }
