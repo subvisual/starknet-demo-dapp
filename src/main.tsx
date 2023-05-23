@@ -6,6 +6,7 @@ import { connectors } from "./lib/starknetConfig.ts";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NotAnNft from "./components/NotAnNft.tsx";
+import NetworkInfo from "./components/NetworkInfo.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       // defaultProvider={...}
       // autoConnect={false}
     >
+      <NetworkInfo />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />

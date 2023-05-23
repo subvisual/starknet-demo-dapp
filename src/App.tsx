@@ -7,18 +7,22 @@ function App() {
   const { address, isConnected } = useAccount();
 
   return (
-    <div className="App flex flex-col items-center justify-center h-full">
-      <h1 className="title text-4xl shadowed mb-8">Le better starknet dapp</h1>
+    <div className="h-full p-4 flex flex-col">
 
-      {isConnected ? (
-        <div>
-          <p>Hello, {address}</p>
-          <Info />
-          <TokenForm />
-        </div>
-      ) : (
-        <Connect />
-      )}
+      <Info />
+      {/* <div className="flex-1 items-center justify-center h-full">
+         <h1 className="title text-4xl shadowed mb-8">
+          Le better starknet dapp
+        </h1> 
+        {isConnected ? (
+          <>
+            <p>Hello, {address}</p>
+            <TokenForm />
+          </>
+        ) : (
+          <Connect />
+        )}
+      </div> */}
     </div>
   );
 }

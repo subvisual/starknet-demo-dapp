@@ -66,6 +66,10 @@ body,
 .btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 .box-shadow {
   filter: drop-shadow(3px 4px 0 #eee);
