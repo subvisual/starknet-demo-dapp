@@ -4,22 +4,19 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { connectors } from "./lib/starknetConfig.ts";
 import "./index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NotAnNft from "./components/NotAnNft.tsx";
+import Source from "./components/Source.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  // React context that provides access to
+  // starknet-react hooks and shared state
   <React.StrictMode>
     <StarknetConfig
       connectors={connectors}
       // defaultProvider={...}
       // autoConnect={false}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/not-an-nft" element={<NotAnNft />} />
-        </Routes>
-      </BrowserRouter>
+      <App />
+      <Source />
     </StarknetConfig>
   </React.StrictMode>
 );
