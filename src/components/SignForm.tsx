@@ -22,7 +22,7 @@ export default function SignForm() {
     },
     primaryType: "Message",
     domain: {
-      name: "Demo app",
+      name: "Starknet demo app",
       version: "1",
       chainId: shortString.decodeShortString(chain?.id as string),
     },

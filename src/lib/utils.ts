@@ -9,5 +9,5 @@ export function format(val: any, key: string, decimals: number) {
 }
 
 export function truncate(val: string) {
-  return val.substring(0, 5);
+  return `${val.substring(0, 5)}...${val.slice(-2)}`;
 }

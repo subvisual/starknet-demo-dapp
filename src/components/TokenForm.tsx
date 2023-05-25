@@ -1,13 +1,11 @@
 import {
   useAccount,
-  useContractRead,
+  useBalance,
   useContractWrite,
-  useTransaction,
 } from "@starknet-react/core";
-import abi_erc20 from "../lib/abi_erc20";
 import { FormEvent, useMemo, useState } from "react";
 import { uint256, stark } from "starknet";
-import { format } from "../lib/utils";
+import {  truncate } from "../lib/utils";
 import { parseFixed } from "@ethersproject/bignumber";
 
 // ERC20 token
@@ -20,14 +18,23 @@ export default function TokenForm() {
   const [to, setTo] = useState("");
   const [amount, setAmount] = useState("");
 
-  // Returns a Uint2456, so we still need to format
+  // Convenience hook for getting
+  // formatted ERC20 balance
+  const { data: balance } = useBalance({
+    address,
+    token: CONTRACT_ADDRESS,
+    // watch: true <- refresh at every block
+  });
+
+  /* 
+  For other read functions, we can use this:
   const { data: balance } = useContractRead({
     abi: abi_erc20,
     address: CONTRACT_ADDRESS,
     functionName: "balanceOf",
     args: [address],
-    // watch: true <- refresh at every block
-  });
+  }); 
+  */
 
   const calls = useMemo(() => {
     if (!amount || !to) return;
@@ -75,16 +82,22 @@ export default function TokenForm() {
   contract.transfer(...)
   */
 
-  const { data: txData, isLoading: txIsLoading } = useTransaction({
-    hash: "0x7f63d9cb1a0d3a6367aeb526a5d0a60f69a8cf7333d40cb681750ff96ae34be",
-  });
-
-  console.log(txData);
-
   return (
     <div className=" my-8 px-8 py-6 bg-offblack border border-offwhite box-shadow text-center max-w-[600px] mx-auto">
-      <h3 className="text-md font-bold">USDC (wink wink)</h3>
-      <strong>Balance: {format(balance, "balance", 18) || "..."}</strong>
+      <h3 className="text-md font-bold">
+        ERC29 token{" "}
+        <a
+          href="https://goerli.voyager.online/contract/0x07394cbe418daa16e42b87ba67372d4ab4a5df0b05c6e554d158458ce245bc10"
+          target="_blank"
+          referrerPolicy="no-referrer"
+          className="underline"
+        >
+          {truncate(CONTRACT_ADDRESS)} ↗
+        </a>
+      </h3>
+      <strong>
+        Balance: {balance?.formatted} {balance?.symbol}
+      </strong>
       <form onSubmit={send} className="flex flex-col gap-4 my-4">
         <input
           type="text"
@@ -105,17 +118,8 @@ export default function TokenForm() {
           Send
         </button>
       </form>
-      <p>{isLoading && "tx pending..."}</p>
-
-      {txData && (
-        <div className="break-words">
-          <p>Transaction:</p>
-          Status: {(txData as any).status}
-          Nonce: {txData.nonce}
-          Hash: {txData.transaction_hash}
-          Calldata: {txData.calldata}
-        </div>
-      )}
+      {isLoading && <p>tx pending...</p>}
+      {data && <p>Tx: {data.transaction_hash}</p>}
     </div>
   );
 }

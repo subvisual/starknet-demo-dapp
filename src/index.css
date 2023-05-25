@@ -25,23 +25,6 @@ body,
   height: 100%;
 }
 
-.artwork {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1;
-  background: linear-gradient(20deg, #6887fc, #bc17e8);
-  border-radius: 1rem;
-}
-
-.artwork p {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 14px;
-  color: #fff;
-  z-index: 2;
-}
-
 .shadowed {
   text-shadow: #ff727f 1px 1px;
 }
