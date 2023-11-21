@@ -10,12 +10,16 @@ function App() {
 
   return (
     <div className="h-full p-4 flex flex-col">
-      <Info />
-      <SignForm />
+      <section className="flex justify-between">
+        <Info />
+        <SignForm />
+      </section>
       <div className="flex-1 flex items-center text-center justify-center h-full">
         {isConnected ? (
           <div>
-            <h1 className="title text-4xl shadowed mb-8">Demo starknet dapp</h1>
+            <h1 className="title font-semibold text-4xl shadowed mb-8">
+              Demo starknet dapp
+            </h1>
             <p>Hello, {address}</p>
             <TokenForm />
           </div>

@@ -3,7 +3,6 @@ import { useBlock, useNetwork } from "@starknet-react/core";
 export default function NetworkInfo() {
   const { data } = useBlock({
     refetchInterval: 10_000,
-    blockIdentifier: "latest",
   });
   const { chain } = useNetwork();
 

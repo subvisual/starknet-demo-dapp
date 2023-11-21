@@ -24,7 +24,7 @@ export default function SignForm() {
     domain: {
       name: "Starknet demo app",
       version: "1",
-      chainId: shortString.decodeShortString(chain?.id as string),
+      chainId: shortString.decodeShortString(chain.id.toString()),
     },
     message: {
       message,
@@ -50,7 +50,7 @@ export default function SignForm() {
         Sign a message
       </button>
       {showSign && (
-        <div className="w-64 px-8 py-6 absolute top-20 right-4 bg-offblack border border-offwhite box-shadow">
+        <div className="w-64 px-8 py-6 absolute top-20 right-4 bg-offblack border border-offwhite box-shadow z-10">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input
               type="text"
